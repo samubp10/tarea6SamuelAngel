@@ -5,7 +5,9 @@
  */
 package javatime;
 
+// Clase para tratar fechas (sólo día, mes y año)
 import java.time.LocalDate;
+// Enumerado para los meses del año (Enero, ...)
 import java.time.Month;
 
 /**
@@ -33,6 +35,19 @@ public class FechasJava8 {
         
         LocalDate nacimientoRosa = LocalDate.of(1988, Month.APRIL, 13);
         System.out.println("Rosa también miente " + nacimientoRosa);
+        
+        /* COMPARACIÓN DE FECHAS */
+        System.out.println("Han nacido el mismo día? " + 
+                nacimientoRosa.equals(nacimientoJose));
+        
+        if (nacimientoJose.isAfter(nacimientoRosa)){
+            System.out.println("Jose es más joven...o eso dice");
+        }
+        
+        // Método isBefore()
+        
+        /* EJEMPLO CON LA CLASE MOTHDAY */
+        
         
     }
     
