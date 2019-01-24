@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.MonthDay;
 import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -71,7 +72,20 @@ public class FechasJava8 {
             System.out.println("Su tarjeta ha caducado");
         }
         
+        /*OPERACIONES CON FECHAS. SUMA, RESTA DE DIAS, SEMANAS, AÑOS, ETC*/
         
+        // Sumar semanas
+        LocalDate semanaSiguiente = hoy.plus(1, ChronoUnit.WEEKS);
+        System.out.println("Dentro de una semana " + semanaSiguiente);
+        // Equivale a semanaSiguiente = hoy.plusWeeks(1);
+        
+        LocalDate suma18dias = hoy.plusDays(18);
+        System.out.println("Dentro de 18 días " + suma18dias);
+        
+        // Restar un siglo
+        LocalDate haceUnSiglo = hoy.minus(1, ChronoUnit.CENTURIES);
+        System.out.println("Hace un siglo " + haceUnSiglo);
+        System.out.println("¿Qué día de la semana? " + haceUnSiglo.getDayOfWeek());
     }
     
 }
