@@ -10,6 +10,7 @@ import java.time.LocalDate;
 // Enumerado para los meses del año (Enero, ...)
 import java.time.Month;
 import java.time.MonthDay;
+import java.time.Period;
 import java.time.YearMonth;
 import java.time.temporal.ChronoUnit;
 
@@ -113,6 +114,18 @@ public class FechasJava8 {
         System.out.println("Febrero del año 2000: " + bisiesto.lengthOfMonth());
         System.out.println("Días del año 2000: " + bisiesto.lengthOfYear());
         System.out.println("Días transcurridos en el año: " + bisiesto.getDayOfYear());
+        
+        /* EJEMPLO CON PERIOD */
+        
+        LocalDate newton = LocalDate.of(1643, 1,4);
+        LocalDate einstein = LocalDate.of(1879, Month.MARCH, 14);
+        
+        Period tiempoEntreGenios = Period.between(newton, einstein);
+        System.out.println(" Tiempo entre nacimientos. Años: " + tiempoEntreGenios.getYears()
+         + " Meses: " + tiempoEntreGenios.getMonths() + " Días: " + tiempoEntreGenios.getDays());
+        System.out.println(tiempoEntreGenios);
+        System.out.println("Meses totales entre fechas " + tiempoEntreGenios.toTotalMonths());
+        
         
         
     }
