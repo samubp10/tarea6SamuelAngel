@@ -6,13 +6,18 @@
 package javatime;
 
 // Clase para tratar fechas (sólo día, mes y año)
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 // Enumerado para los meses del año (Enero, ...)
 import java.time.Month;
 import java.time.MonthDay;
 import java.time.Period;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 /**
  *
@@ -126,7 +131,38 @@ public class FechasJava8 {
         System.out.println(tiempoEntreGenios);
         System.out.println("Meses totales entre fechas " + tiempoEntreGenios.toTotalMonths());
         
+        /* MOSTRAR INFORMACIÓN */
         
+        DayOfWeek lunes = DayOfWeek.MONDAY;
+        
+        // Guardo en objeto locale la información del sistema donde
+        // está la máquina virtual
+        System.out.println("Lunes " + lunes);
+        Locale configSistema = Locale.getDefault();
+        
+        System.out.println("TextStyle.FULL " + lunes.getDisplayName(TextStyle.FULL, configSistema));
+        System.out.println("TextStyle.NARROW " + lunes.getDisplayName(TextStyle.NARROW, configSistema));
+        System.out.println("TextStyle.SHORT " + lunes.getDisplayName(TextStyle.SHORT, configSistema));
+        
+        Month mes = hoy.getMonth();
+        DayOfWeek dia = hoy.getDayOfWeek();
+        System.out.println("MES TextStyle.FULL " + mes.getDisplayName(TextStyle.FULL, configSistema));
+        
+        // La clase DateTimeFormatter formatea fechas y horas
+        // para poder ser impresas en gran cantidad de formas
+        // Más info en la API de Java
+        
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd MM yyyy");
+        String fechaString = hoy.format(formato);
+        System.out.println("Fecha sin formato " + hoy);
+        System.out.println("Fecha con formato " + fechaString);
+        
+        // Este objeto guarda fecha y hora
+        LocalDateTime ya = LocalDateTime.now();
+        DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String fechaString2 = ya.format(formato2);
+        System.out.println("Fecha sin formato " + ya);
+        System.out.println("Fecha con formato " + fechaString2);
         
     }
     
