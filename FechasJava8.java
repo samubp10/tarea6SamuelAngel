@@ -9,6 +9,7 @@ package javatime;
 import java.time.LocalDate;
 // Enumerado para los meses del año (Enero, ...)
 import java.time.Month;
+import java.time.MonthDay;
 
 /**
  *
@@ -48,7 +49,10 @@ public class FechasJava8 {
         
         /* EJEMPLO CON LA CLASE MOTHDAY */
         
+        LocalDate diaAnda = LocalDate.of(1976, Month.FEBRUARY, 28);
         
+        MonthDay diaMesAndalucia = MonthDay.of(diaAnda.getMonth(), diaAnda.getDayOfMonth());
+        MonthDay diaMesHoy = MonthDay.from(LocalDate.now());
     }
     
 }
