@@ -86,6 +86,35 @@ public class FechasJava8 {
         LocalDate haceUnSiglo = hoy.minus(1, ChronoUnit.CENTURIES);
         System.out.println("Hace un siglo " + haceUnSiglo);
         System.out.println("¿Qué día de la semana? " + haceUnSiglo.getDayOfWeek());
+        
+        /* DÍAS ENTRE FECHAS */
+        
+        long diferenciaDias = ChronoUnit.DAYS.between(haceUnSiglo, hoy);
+        System.out.println("Días entre fechas " + diferenciaDias);
+        
+        LocalDate finalCurso = LocalDate.of(2019,Month.JUNE, 25);
+        long diasHastaFinal = ChronoUnit.DAYS.between(hoy, finalCurso);
+        System.out.println("Días para terminar " + diasHastaFinal);
+        
+        long semanasHastaFinal = ChronoUnit.WEEKS.between(hoy, finalCurso);
+        System.out.println("Semanas hasta el final " + semanasHastaFinal);
+        
+        /* AÑO BISIESTO */
+        if (hoy.isLeapYear()){
+            System.out.println("Este año es bisiesto");
+        }
+        
+        /* Número de días del mes */
+        System.out.println("Días del mes actual " + hoy.lengthOfMonth());
+        
+        LocalDate bisiesto = LocalDate.of(2000, 2, 11);
+        System.out.println("Bisiesto? " + bisiesto.isLeapYear());
+        
+        System.out.println("Febrero del año 2000: " + bisiesto.lengthOfMonth());
+        System.out.println("Días del año 2000: " + bisiesto.lengthOfYear());
+        System.out.println("Días transcurridos en el año: " + bisiesto.getDayOfYear());
+        
+        
     }
     
 }
